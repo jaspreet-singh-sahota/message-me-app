@@ -7,19 +7,20 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui comments"> 
-            <%= render @messages %>  
-          <form class="ui reply form">
-            <div class="ui left icon fluid input">
-              <input type="text" placeholder="Enter a message...">
-              <i class="users icon"></i>
-              <div class="ui submit icon button">
-                <i class="icon edit"></i>
-              </div>
-            </div>
-          </form>
+      <div class="content" id="messages">
+        <div class="ui comments" id="message-container">
+          <%= render @messages %>
         </div>
+      </div> 
+      <div class="extra content">
+        <%= form_with(model: @messages, url: message_path, class: "ui reply form", role: "form", remote: true) do |f| %>
+          <div class="field">
+            <div class="ui fluid icon input">
+              <%= f.text_field :body %>
+              <%= f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

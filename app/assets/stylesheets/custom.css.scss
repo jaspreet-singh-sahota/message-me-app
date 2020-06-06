@@ -1,11 +1,14 @@
 @import "semantic-ui";
 
+#messages {
+  height: 370px;
+  overflow: auto;
+}
+
 .chatbox {
-  height: 400px;
-  overflow-y: scroll;
+  height: 385px;
 }
 
 .ui.center.aligned.header.welcome-login {
   padding: 15px 0;
-
 }
